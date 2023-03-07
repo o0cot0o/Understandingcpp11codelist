@@ -9,7 +9,7 @@ public:
     Ptr(T* p):_p(p){} // 拷贝构造函数
 
     // 转换到bool类型
-    operator bool() const{
+    explicit operator bool() const{ //加入explicit关键词
         if(_p != 0)
             return true;
         else
@@ -30,5 +30,6 @@ int main(){
 
     Ptr<double> pd(0);
 
-    cout << p + pd << endl;     // 1, 转换为bool类型相加,语义上没有意义 
+    cout << p + pd << endl;     // 1, 转换为bool类型, Ptr<int>与Ptr<double>相加,语义上没有意义 
+                                // 加入explicit关键词后编译无法通过
 }
