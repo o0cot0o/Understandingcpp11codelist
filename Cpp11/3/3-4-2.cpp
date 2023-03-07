@@ -2,10 +2,13 @@
 
 using namespace std;
 
+// 指针模板类型Ptr
 template <typename T>
 class Ptr{
 public:
-    Ptr(T* p):_p(p){}
+    Ptr(T* p):_p(p){} // 拷贝构造函数
+
+    // 转换到bool类型
     operator bool() const{
         if(_p != 0)
             return true;
@@ -27,5 +30,5 @@ int main(){
 
     Ptr<double> pd(0);
 
-    cout << p + pd << endl;     // 1, 相加,语义上没有意义
+    cout << p + pd << endl;     // 1, 转换为bool类型相加,语义上没有意义 
 }
